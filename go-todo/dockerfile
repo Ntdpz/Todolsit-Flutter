@@ -1,0 +1,20 @@
+# ใช้ base image ของ Go
+FROM golang:1.21
+
+# ตั้งค่า Working Directory
+WORKDIR /app
+
+# คัดลอกไฟล์ทั้งหมดเข้าไป
+COPY . .
+
+# ติดตั้ง dependency
+RUN go mod tidy
+
+# คอมไพล์โปรแกรม
+RUN go build -o main .
+
+# เปิดพอร์ต
+EXPOSE 8080
+
+# รันแอป
+CMD ["./main"]
