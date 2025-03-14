@@ -6,7 +6,6 @@ void main() {
       home: Scaffold(
         body: Center(
           child: TodoList(),
-
         ),
       ),
     ),
